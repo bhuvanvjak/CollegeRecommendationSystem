@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Edu Recommender - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ccc;
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Featured Destinations Styles */
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+            margin-top: 40px;
+        }
+
+        .destination-card {
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .destination-card h3 {
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        .destination-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .destination-btn img {
+            max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .destination-btn img:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/usa">USA</a>
+            <a href="/canada">Canada</a>
+            <a href="/japan">Japan</a>
+            <a href="/uk">UK</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to University recommendation system</h1>
+        <p>Explore top universities and get personalized recommendations based<!--  --> on your academic profile.</p>
+
+        <section>
+            <h2>Featured Destinations</h2>
+            <div class="destination-grid">
+              
+                <button class="destination-btn" onclick="window.location.href='/usa'">
+                    <img src="{{ url_for('static', filename='usa-image.png') }}" alt="USA">
+                    <h3>Usa</h3>
+                </button>
+                
+                
+                <button class="destination-btn" onclick="window.location.href='/canada'">
+                    <img src="{{ url_for('static', filename='canada-image.jpg') }}" alt="Canada">
+                    <h3>Canada</h3>
+                </button>
+
+                <button class="destination-btn" onclick="window.location.href='/japan'">
+                    <img src="{{ url_for('static', filename='japan-image.jpg') }}" alt="Japan">
+                    <h3>Japan</h3>
+                </button>
+                
+              
+                <button class="destination-btn" onclick="window.location.href='/uk'">
+                    <img src="{{ url_for('static', filename='uk-image.jpg') }}" alt="Uk">
+                    <h3>UK</h3>
+                </button>
+                
+
+            </div>
+        </section>
+        <!-- <h1>Welcome to Higher Edu Recommender</h1>
+        <p>Explore top universities and get personalized recommendations based on your academic profile.</p>
+        <form action="/usa" method="get">
+          <button type="submit" class="usa-btn">Explore USA Universities</button>
+        </form>
+    
+        <section>
+          <h2>Featured Destinations</h2>
+          <div class="destination-grid">
+            </div>
+        </section> -->
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Higher Edu Recommender</p>
+    </footer>
+</body>
+</html>

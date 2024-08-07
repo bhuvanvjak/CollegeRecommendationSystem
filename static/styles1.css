@@ -1,0 +1,72 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ccc;
+}
+
+/* Main Content Styles */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Destination Grid Styles */
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.destination-card {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.destination-card h3 {
+    padding: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

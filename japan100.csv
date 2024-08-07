@@ -1,0 +1,101 @@
+Rank,University,Min. CGPA,Min. JLPT,Min. EJU (Japan & World),Min. TOEFL (iBT),Location,Min. Annual Fee (INR)
+1,University of Tokyo,3.5,N1,300,100,Tokyo,336924
+2,Kyoto University,3.5,N1,290,100,Kyoto,337554
+3,Osaka University,3.4,N1,280,90,Osaka,337554
+4,Tohoku University,3.4,N1,270,90,Sendai,337554
+5,Tokyo Institute of Technology,3.5,N1,300,100,Tokyo,396900
+6,Nagoya University,3.4,N1,280,90,Nagoya,337554
+7,Kyushu University,3.4,N1,270,90,Fukuoka,337554
+8,Hokkaido University,3.4,N1,270,90,Sapporo,337554
+9,Keio University,3.5,N1,290,100,Tokyo,598500
+10,Waseda University,3.5,N1,290,100,Tokyo,756000
+11,Tsukuba University,3.3,N2,260,80,Tsukuba,337554
+12,Hiroshima University,3.3,N2,260,80,Hiroshima,337554
+13,Tokyo Medical and Dental University,3.5,N1,300,100,Tokyo,516170
+14,Tokyo University of Foreign Studies,3.3,N1,280,90,Tokyo,337554
+15,Yokohama National University,3.3,N2,260,80,Yokohama,337554
+16,Kobe University,3.4,N1,270,90,Kobe,337554
+17,Okayama University,3.3,N2,260,80,Okayama,337554
+18,Chiba University,3.3,N2,260,80,Chiba,337554
+19,Kumamoto University,3.3,N2,260,80,Kumamoto,337554
+20,Toyohashi University of Technology,3.3,N2,260,80,Toyohashi,337554
+21,Tokyo University of Science,3.4,N1,280,90,Tokyo,598500
+22,Shinshu University,3.3,N2,260,80,Nagano,337554
+23,Sophia University,3.4,N2,270,90,Tokyo,598500
+24,Ritsumeikan University,3.4,N2,270,90,Kyoto,598500
+25,Doshisha University,3.4,N2,270,90,Kyoto,598500
+26,Kanazawa University,3.3,N2,260,80,Kanazawa,337554
+27,Kyushu Institute of Technology,3.3,N2,260,80,Fukuoka,337554
+28,Nagasaki University,3.3,N2,260,80,Nagasaki,337554
+29,Nara Institute of Science and Technology,3.4,N1,280,90,Nara,337554
+30,Niigata University,3.3,N2,260,80,Niigata,337554
+31,Ochanomizu University,3.3,N1,270,80,Tokyo,337554
+32,Tokyo University of Agriculture and Technology,3.3,N2,260,80,Tokyo,337554
+33,University of Tsukuba,3.3,N2,260,80,Tsukuba,337554
+34,Yamagata University,3.3,N2,260,80,Yamagata,337554
+35,Yokohama City University,3.3,N2,260,80,Yokohama,409500
+36,Gifu University,3.2,N2,250,70,Gifu,337554
+37,Shizuoka University,3.2,N2,250,70,Shizuoka,337554
+38,Akita University,3.2,N2,250,70,Akita,337554
+39,Ehime University,3.2,N2,250,70,Matsuyama,337554
+40,Fukuoka University,3.3,N2,260,80,Fukuoka,598500
+41,Gunma University,3.2,N2,250,70,Gunma,337554
+42,Iwate University,3.2,N2,250,70,Morioka,337554
+43,Kagawa University,3.2,N2,250,70,Takamatsu,337554
+44,Kagoshima University,3.2,N2,250,70,Kagoshima,337554
+45,Kanazawa Institute of Technology,3.3,N2,260,80,Kanazawa,481950
+46,Kitami Institute of Technology,3.2,N2,250,70,Kitami,337554
+47,Kochi University,3.2,N2,250,70,Kochi,337554
+48,Kyoto Institute of Technology,3.3,N2,260,80,Kyoto,481950
+49,Mie University,3.2,N2,250,70,Tsu,337554
+50,Muroran Institute of Technology,3.2,N2,250,70,Muroran,337554
+51,Nagano University,3.2,N2,250,70,Nagano,337554
+52,Nara University,3.2,N2,250,70,Nara,337554
+53,Nigata University of International and Information Studies,3.2,N2,250,70,Niigata,337554
+54,Oita University,3.2,N2,250,70,Oita,337554
+55,Osaka City University,3.3,N2,260,80,Osaka,481950
+56,Osaka Prefecture University,3.3,N2,260,80,Osaka,337554
+57,Ryukoku University,3.3,N2,260,80,Kyoto,598500
+58,Saitama University,3.2,N2,250,70,Saitama,337554
+59,Soka University,3.3,N2,260,80,Tokyo,598500
+60,Tokyo City University,3.2,N2,250,70,Tokyo,481950
+61,Tokyo Denki University,3.2,N2,250,70,Tokyo,481950
+62,Tokyo University of Marine Science and Technology,3.2,N2,250,70,Tokyo,337554
+63,Tokyo University of the Arts,3.3,N2,260,80,Tokyo,337554
+64,Tottori University,3.2,N2,250,70,Tottori,337554
+65,Toyama University,3.2,N2,250,70,Toyama,337554
+66,University of Aizu,3.2,N2,250,70,Aizu,337554
+67,University of Electro-Communications,3.2,N2,250,70,Tokyo,337554
+68,University of Fukui,3.2,N2,250,70,Fukui,337554
+69,University of Hyogo,3.2,N2,250,70,Kobe,337554
+70,University of Miyazaki,3.2,N2,250,70,Miyazaki,337554
+71,University of Yamanashi,3.2,N2,250,70,Kofu,337554
+72,Wakayama University,3.2,N2,250,70,Wakayama,337554
+73,Yamaguchi University,3.2,N2,250,70,Yamaguchi,337554
+74,Aichi University,3.1,N3,240,60,Nagoya,481950
+75,Fukushima University,3.1,N3,240,60,Fukushima,337554
+76,Hirosaki University,3.1,N3,240,60,Hirosaki,337554
+77,Hitotsubashi University,3.4,N1,280,90,Tokyo,564000
+78,Ibaraki University,3.1,N3,240,60,Mito,337554
+79,International Christian University,3.3,N2,260,80,Tokyo,481950
+80,J.F. Oberlin University,3.1,N3,240,60,Tokyo,337554
+81,Japan Advanced Institute of Science and Technology,3.3,N2,260,80,Nomi,481950
+82,Japan Women's University,3.1,N3,240,60,Tokyo,337554
+83,Josai International University,3.1,N3,240,60,Togane,337554
+84,Kanda University of International Studies,3.2,N2,250,70,Chiba,481950
+85,Kansai University,3.2,N2,250,70,Osaka,481950
+86,Kawasaki University of Medical Welfare,3.2,N2,250,70,Kurashiki,481950
+87,Kindai University,3.2,N2,250,70,,481950
+88,Konan University,3.1,N3,240,60,,337554
+89,Kwansei Gakuin University,3.2,N2,250,70,Nishinomiya,481950
+90,Kyoto Sangyo University,3.1,N3,240,60,Kyoto,337554
+91,Kyushu Sangyo University,3.1,N3,240,60,Fukuoka,337554
+92,Meiji University,3.3,N2,260,80,Tokyo,481950
+93,Meijo University,3.1,N3,240,60,Nagoya,337554
+94,Nanzan University,3.1,N3,240,60,Nagoya,337554
+95,Nihon University,3.2,N2,250,70,Tokyo,481950
+96,Osaka Sangyo University,3.1,N3,240,60,Osaka,337554
+97,Rikkyo University,3.2,N2,250,70,Tokyo,481950
+98,Seikei University,3.1,N3,240,60,Tokyo,337554
+99,Shibaura Institute of Technology,3.2,N2,250,70,Tokyo,481950
+100,Toyo University,3.1,N3,240,60,Tokyo,337554

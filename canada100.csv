@@ -1,0 +1,101 @@
+Rank,University,Location,Min. CGPA,Min. TOEFL (iBT),Min. IELTS,Min. GRE (V+Q),Max Tuition Fee (INR)
+1,University of Toronto,Toronto ON,3.5,100,7.0,320,3630000
+2,McGill University,Montreal QC,3.5,100,7.0,320,2970000
+3,University of British Columbia,Vancouver BC,3.4,100,7.0,315,2508000
+4,University of Alberta,Edmonton AB,3.3,90,6.5,300,1716000
+5,Université de Montréal,Montreal QC,3.4,90,7.0,N/A,1650000
+6,McMaster University,Hamilton ON,3.4,92,6.5,310,1848000
+7,University of Waterloo,Waterloo ON,3.4,90,6.5,315,1980000
+8,Western University,London ON,3.3,88,7.0,300,2112000
+9,University of Calgary,Calgary AB,3.3,86,6.5,300,1584000
+10,Queen's University,Kingston ON,3.4,88,7.0,305,2640000
+11,University of Ottawa,Ottawa ON,3.3,88,6.5,N/A,1848000
+12,York University,Toronto ON,3.2,83,6.5,N/A,1980000
+13,University of Victoria,Victoria BC,3.3,90,6.5,300,2310000
+14,Simon Fraser University,Burnaby BC,3.3,88,6.5,300,1782000
+15,Dalhousie University,Halifax NS,3.3,90,6.5,N/A,1320000
+16,Université Laval,Quebec City QC,3.3,90,7.0,N/A,1188000
+17,Carleton University,Ottawa ON,3.2,86,6.5,N/A,1914000
+18,University of Saskatchewan,Saskatoon SK,3.2,83,6.5,N/A,1452000
+19,University of Manitoba,Winnipeg MB,3.2,80,6.5,N/A,1122000
+20,University of Guelph,Guelph ON,3.2,89,6.5,N/A,1848000
+21,Concordia University,Montreal QC,3.2,90,7.0,N/A,1650000
+22,University of New Brunswick,Fredericton NB,3.2,92,6.5,N/A,1254000
+23,Ryerson University (Toronto Metropolitan University),Toronto ON,3.2,88,6.5,N/A,2178000
+24,University of Windsor,Windsor ON,3.1,83,6.5,N/A,1386000
+25,Memorial University of Newfoundland,St. John's NL,3.1,79,6.5,N/A,726000
+26,Brock University,St. Catharines ON,3.1,88,6.5,N/A,1782000
+27,Université de Sherbrooke,Sherbrooke QC,3.2,90,7.0,N/A,1518000
+28,Wilfrid Laurier University,Waterloo ON,3.1,83,6.5,N/A,1980000
+29,University of Regina,Regina SK,3.1,80,6.5,N/A,1254000
+30,University of Lethbridge,Lethbridge AB,3.1,80,6.5,N/A,1188000
+31,Lakehead University,Thunder Bay ON,3.0,80,6.5,N/A,1188000
+32,Laurentian University,Sudbury ON,3.0,88,6.5,N/A,1188000
+33,Thompson Rivers University,Kamloops BC,3.0,88,6.5,N/A,1188000
+34,Trent University,Peterborough ON,3.1,86,6.5,N/A,1188000
+35,University of Northern British Columbia,Prince George BC,3.0,88,6.5,N/A,1188000
+36,University of Ontario Institute of Technology,Oshawa ON,3.1,83,6.5,N/A,1188000
+37,University of the Fraser Valley,Abbotsford BC,3.0,88,6.5,N/A,1188000
+38,Vancouver Island University,Nanaimo BC,3.0,88,6.5,N/A,1188000
+39,MacEwan University,Edmonton AB,3.0,83,6.5,N/A,1188000
+40,Université du Québec à Montréal,Montreal QC,3.2,90,7.0,N/A,1650000
+41,University of Waterloo - Renison University College,Waterloo ON,3.2,90,6.5,N/A,1188000
+42,Acadia University,Wolfville NS,3.1,90,6.5,N/A,1188000
+43,Bishop's University,Sherbrooke QC,3.1,90,6.5,N/A,1188000
+44,Brandon University,Brandon MB,3.0,80,6.5,N/A,1188000
+45,Brescia University College,London ON,3.0,83,6.5,N/A,1188000
+46,Cape Breton University,Sydney NS,3.0,79,6.5,N/A,1188000
+47,Capilano University,North Vancouver BC,3.0,88,6.5,N/A,1188000
+48,Centennial College,Toronto ON,3.0,79,6.0,N/A,1188000
+49,Dalhousie University - Agricultural Campus,Truro NS,3.2,90,6.5,N/A,1188000
+50,Douglas College,New Westminster BC,3.0,88,6.5,N/A,1188000
+51,Emily Carr University of Art and Design,Vancouver BC,3.0,84,6.5,N/A,1188000
+52,HEC Montréal,Montreal QC,3.3,90,7.0,N/A,1188000
+53,Huron University College,London ON,3.0,83,6.5,N/A,1188000
+54,King's University College,London ON,3.0,83,6.5,N/A,1188000
+55,Kwantlen Polytechnic University,Surrey BC,3.0,88,6.5,N/A,1188000
+56,Langara College,Vancouver BC,3.0,88,6.5,N/A,1188000
+57,Laurentian University - Barrie Campus,Barrie ON,3.0,88,6.5,N/A,1188000
+58,Luther College,Regina SK,3.0,80,6.5,N/A,1188000
+59,Mount Allison University,Sackville NB,3.1,90,6.5,N/A,1188000
+60,Mount Royal University,Calgary AB,3.0,83,6.5,N/A,1188000
+61,Mount Saint Vincent University,Halifax NS,3.0,79,6.5,N/A,1188000
+62,Nipissing University,North Bay ON,3.0,86,6.0,N/A,1188000
+63,NSCAD University,Halifax NS,3.0,80,6.5,N/A,1188000
+64,OCAD University,Toronto ON,3.0,84,6.5,N/A,1188000
+65,Quest University,Squamish BC,3.1,90,7.0,N/A,1188000
+66,Redeemer University College,Ancaster ON,3.0,80,6.5,N/A,1188000
+67,Royal Military College of Canada,Kingston ON,3.2,94,7.0,N/A,1188000
+68,Royal Roads University,Victoria BC,3.0,88,6.5,N/A,1188000
+69,Saint Mary's University,Halifax NS,3.0,80,6.5,N/A,1188000
+70,St. Francis Xavier University,Antigonish NS,3.0,90,6.5,N/A,1188000
+71,St. Jerome's University,Waterloo ON,3.0,83,6.5,N/A,1188000
+72,St. Mary's University,Calgary AB,3.0,80,6.5,N/A,1188000
+73,St. Thomas More College,Saskatoon SK,3.0,80,6.5,N/A,1188000
+74,St. Thomas University,Fredericton NB,3.0,79,6.5,N/A,1188000
+75,The King's University,Edmonton AB,3.0,80,6.5,N/A,1188000
+76,Trinity Western University,Langley BC,3.0,88,6.5,N/A,1188000
+77,Université de Moncton,Moncton NB,3.2,90,7.0,N/A,1188000
+78,Université de Saint-Boniface,Winnipeg MB,3.2,90,7.0,N/A,1188000
+79,Université du Québec à Chicoutimi,Saguenay QC,3.2,90,7.0,N/A,1188000
+80,Université du Québec à Rimouski,Rimouski QC,3.2,90,7.0,N/A,1188000
+81,Université du Québec à Trois-Rivières,Trois-Rivieres QC,3.2,90,7.0,N/A,1188000
+82,Université du Québec en Abitibi-Témiscamingue,Rouyn-Noranda QC,3.2,90,7.0,N/A,1188000
+83,Université du Québec en Outaouais,Gatineau QC,3.2,90,7.0,N/A,1188000
+84,Université Sainte-Anne,Church Point NS,3.2,90,7.0,N/A,1188000
+85,Université TÉLUQ,Quebec QC,3.2,90,7.0,N/A,1188000
+86,University of King's College,Halifax NS,3.0,90,6.5,N/A,1188000
+87,University of Prince Edward Island,Charlottetown PE,3.0,80,6.5,N/A,1188000
+88,University of St. Michael's College,Toronto ON,3.0,83,6.5,N/A,1188000
+89,University of Sudbury,Sudbury ON,3.0,88,6.5,N/A,1188000
+90,University of the Arctic,N/A,3.0,79,6.5,N/A,1188000
+91,University of Trinity College,Toronto ON,3.0,83,6.5,N/A,1188000
+92,University of Winnipeg,Winnipeg MB,3.0,80,6.5,N/A,1188000
+93,Victoria University,Toronto ON,3.0,83,6.5,N/A,1188000
+94,Westmont College,N/A,3.0,80,6.5,N/A,1188000
+95,Ambrose University,Calgary AB,3.0,80,6.5,N/A,1188000
+96,Athabasca University,Athabasca AB,3.0,88,6.5,N/A,1188000
+97,Crandall University,Moncton NB,3.0,79,6.5,N/A,1188000
+98,Kingswood University,Sussex NB,3.0,79,6.5,N/A,1188000
+99,Providence University College,Otterburne MB,3.0,80,6.5,N/A,1188000
+100,St. Stephen's University,St. Stephen NB,3.0,79,6.5,N/A,1188000

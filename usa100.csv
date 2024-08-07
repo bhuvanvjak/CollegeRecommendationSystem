@@ -1,0 +1,101 @@
+Rank,University,Min. CGPA (4.0 scale),Min. TOEFL (iBT),Min. IELTS,Min. GRE (V+Q),Location,Est. Annual Tuition (INR),Min ILETS Score
+1,Harvard University,3.5,100,7.0,320,Cambridge MA,4549000,7.0
+2,Stanford University,3.5,100,7.0,325,Stanford CA,4713000,7.0
+3,Massachusetts Institute of Technology (MIT),3.5,100,7.0,325,Cambridge MA,4549000,7.0
+4,Yale University,3.5,100,7.0,320,New Haven CT,4631000,7.0
+5,Princeton University,3.5,100,7.0,325,Princeton NJ,4549000,7.0
+6,Columbia University,3.4,100,7.0,315,New York City NY,4754000,7.0
+7,University of Chicago,3.5,104,7.0,320,Chicago IL,4754000,7.0
+8,University of Pennsylvania,3.5,100,7.0,320,Philadelphia PA,4631000,7.0
+9,California Institute of Technology (Caltech),3.5,100,7.0,325,Pasadena CA,4549000,7.0
+10,Johns Hopkins University,3.4,100,7.0,315,Baltimore MD,4713000,7.0
+11,Northwestern University,3.4,90,7.0,315,Evanston IL,4549000,7.0
+12,Duke University,3.5,100,7.0,320,Durham NC,4713000,7.0
+13,University of California Berkeley,3.3,90,7.0,310,Berkeley CA,3321000,7.0
+14,Cornell University,3.4,100,7.0,315,Ithaca NY,4549000,7.0
+15,Brown University,3.5,100,7.0,320,Providence RI,4631000,7.0
+16,University of Michigan - Ann Arbor,3.3,84,6.5,310,Ann Arbor MI,3485000,6.5
+17,University of California Los Angeles (UCLA),3.3,87,7.0,310,Los Angeles CA,3321000,7.0
+18,University of Virginia,3.4,90,7.0,315,Charlottesville VA,3813000,7.0
+19,Rice University,3.5,100,7.0,320,Houston TX,4549000,7.0
+20,Washington University in St. Louis,3.4,90,7.0,315,St. Louis MO,4713000,7.0
+21,Vanderbilt University,3.4,100,7.0,315,Nashville TN,4631000,7.0
+22,Georgetown University,3.4,100,7.0,315,Washington D.C.,4631000,7.0
+23,Carnegie Mellon University,3.3,100,7.0,320,Pittsburgh PA,4631000,7.0
+24,University of Southern California,3.3,90,7.0,310,Los Angeles CA,4631000,7.0
+25,Emory University,3.4,100,7.0,315,Atlanta GA,4631000,7.0
+26,University of California San Diego,3.3,85,7.0,310,San Diego CA,3321000,7.0
+27,University of North Carolina - Chapel Hill,3.3,90,7.0,310,Chapel Hill NC,3485000,7.0
+28,University of Rochester,3.3,100,7.0,310,Rochester NY,4631000,7.0
+29,University of California Davis,3.2,80,7.0,300,Davis CA,3321000,7.0
+30,New York University (NYU),3.3,100,7.0,310,New York City NY,4754000,7.0
+31,Boston College,3.3,100,7.0,310,Chestnut Hill MA,4631000,7.0
+32,William & Mary,3.3,100,7.0,310,Williamsburg VA,3813000,7.0
+33,University of Texas - Austin,3.3,79,6.5,310,Austin TX,3485000,6.5
+34,Georgia Institute of Technology,3.3,90,7.0,320,Atlanta GA,3813000,7.0
+35,University of California Irvine,3.2,80,7.0,300,Irvine CA,3321000,7.0
+36,University of Florida,3.2,80,6.5,300,Gainesville FL,3157000,6.5
+37,University of Wisconsin - Madison,3.2,80,6.5,300,Madison WI,3157000,6.5
+38,Boston University,3.3,84,7.0,310,Boston MA,4631000,7.0
+39,Tufts University,3.4,100,7.0,315,Medford MA,4713000,7.0
+40,University of Illinois - Urbana-Champaign,3.2,79,6.5,300,Champaign IL,3157000,6.5
+41,Case Western Reserve University,3.3,90,7.0,310,Cleveland OH,4631000,7.0
+42,University of Washington,3.2,92,7.0,300,Seattle WA,3813000,7.0
+43,University of California Santa Barbara,3.2,80,7.0,300,Santa Barbara CA,3321000,7.0
+44,Pennsylvania State University,3.2,80,6.5,300,State College PA,3813000,6.5
+45,Rensselaer Polytechnic Institute,3.3,88,7.0,310,Troy NY,4631000,7.0
+46,University of Notre Dame,3.3,90,7.0,310,Notre Dame IN,4631000,7.0
+47,University of Minnesota - Twin Cities,3.2,79,6.5,300,Minneapolis MN,3157000,6.5
+48,Ohio State University,3.2,79,6.5,300,Columbus OH,3321000,6.5
+49,Purdue University,3.2,77,6.5,300,West Lafayette IN,3157000,6.5
+50,Wake Forest University,3.3,90,7.0,310,Winston-Salem NC,4631000,7.0
+51,University of Colorado - Boulder,3.2,75,6.5,300,Boulder CO,3321000,6.5
+52,University of Georgia,3.2,80,6.5,300,Athens GA,3157000,6.5
+53,University of Maryland - College Park,3.2,100,7.0,300,College Park MD,3813000,7.0
+54,Syracuse University,3.2,80,6.5,300,Syracuse NY,4631000,6.5
+55,Texas A&M University,3.2,80,6.5,300,College Station TX,3321000,6.5
+56,University of Arizona,3.1,79,6.5,295,Tucson AZ,3157000,6.5
+57,University of Iowa,3.1,80,6.5,295,Iowa City IA,3157000,6.5
+58,University of Miami,3.2,80,6.5,300,Coral Gables FL,4631000,6.5
+59,University of Pittsburgh,3.2,80,6.5,300,Pittsburgh PA,3813000,6.5
+60,Virginia Tech,3.2,90,6.5,300,Blacksburg VA,3813000,6.5
+61,Lehigh University,3.2,80,6.5,300,Bethlehem PA,4631000,6.5
+62,Michigan State University,3.1,79,6.5,295,East Lansing MI,3813000,6.5
+63,Rutgers University - New Brunswick,3.1,79,6.5,295,New Brunswick NJ,3813000,6.5
+64,SUNY Stony Brook University,3.1,80,6.5,295,Stony Brook NY,2993000,6.5
+65,University of California Santa Cruz,3.1,80,7.0,295,Santa Cruz CA,3321000,7.0
+66,University of Connecticut,3.1,79,6.5,295,Storrs CT,3813000,6.5
+67,University of Massachusetts - Amherst,3.1,80,6.5,295,Amherst MA,3813000,6.5
+68,Auburn University,3.1,79,6.5,295,Auburn AL,3157000,6.5
+69,Clemson University,3.1,80,6.5,295,Clemson SC,3813000,6.5
+70,Colorado State University,3.1,80,6.5,295,Fort Collins CO,3157000,6.5
+71,Florida State University,3.1,80,6.5,295,Tallahassee FL,3157000,6.5
+72,George Washington University,3.2,100,7.0,300,Washington D.C.,4631000,7.0
+73,Indiana University - Bloomington,3.1,79,6.5,295,Bloomington IN,3157000,6.5
+74,Iowa State University,3.1,79,6.5,295,Ames IA,3157000,6.5
+75,North Carolina State University,3.1,80,6.5,295,Raleigh NC,3485000,6.5
+76,Oregon State University,3.1,80,6.5,295,Corvallis OR,3321000,6.5
+77,Southern Methodist University,3.2,80,6.5,300,Dallas TX,4631000,6.5
+78,SUNY - University at Buffalo,3.1,79,6.5,295,Buffalo NY,2993000,6.5
+79,University of Alabama,3.1,79,6.5,295,Tuscaloosa AL,3157000,6.5
+80,University of Arkansas,3.1,79,6.5,295,Fayetteville AR,3157000,6.5
+81,University of Cincinnati,3.1,80,6.5,295,Cincinnati OH,3157000,6.5
+82,University of Kansas,3.1,80,6.5,295,Lawrence KS,3157000,6.5
+83,University of Kentucky,3.1,79,6.5,295,Lexington KY,3157000,6.5
+84,University of Missouri,3.1,80,6.5,295,Columbia MO,3157000,6.5
+85,University of Nebraska - Lincoln,3.1,79,6.5,295,Lincoln NE,3157000,6.5
+86,University of Oklahoma,3.1,79,6.5,295,Norman OK,3157000,6.5
+87,University of Oregon,3.1,88,6.5,295,Eugene OR,3485000,6.5
+88,University of South Carolina,3.1,80,6.5,295,Columbia SC,3813000,6.5
+89,University of Tennessee - Knoxville,3.1,80,6.5,295,Knoxville TN,3485000,6.5
+90,University of Utah,3.1,80,6.5,295,Salt Lake City UT,3485000,6.5
+91,Virginia Commonwealth University,3.1,80,6.5,295,Richmond VA,3813000,6.5
+92,Washington State University,3.1,80,6.5,295,Pullman WA,3321000,6.5
+93,West Virginia University,3.1,79,6.5,295,Morgantown WV,3321000,6.5
+94,Arizona State University,3.0,80,6.5,290,Tempe AZ,3157000,6.5
+95,Louisiana State University,3.0,79,6.5,290,Baton Rouge LA,3157000,6.5
+96,Oklahoma State University,3.0,79,6.5,290,Stillwater OK,3157000,6.5
+97,Temple University,3.0,79,6.5,290,Philadelphia PA,3813000,6.5
+98,University of Hawaii - Manoa,3.0,80,6.5,290,Honolulu HI,3321000,6.5
+99,University of Houston,3.0,79,6.5,290,Houston TX,3157000,6.5
+100,University of New Mexico,3.0,79,6.5,290,Albuquerque NM,3157000,6.5

@@ -1,0 +1,101 @@
+Rank,University,Min. Degree Class,Min. CGPA (4.0 scale),Min. IELTS,Min. TOEFL (iBT),Min. PTE Academic,Max Tuition Fee (INR)
+1,University of Oxford,Upper Second (2:1),3.5,7,100,69,5000000
+2,University of Cambridge,Upper Second (2:1),3.5,7,100,69,5000000
+3,Imperial College London,Upper Second (2:1),3.4,6.5,92,62,4000000
+4,University College London (UCL),Upper Second (2:1),3.4,6.5,92,62,4000000
+5,London School of Economics (LSE),Upper Second (2:1),3.5,7,100,69,4500000
+6,University of Edinburgh,Upper Second (2:1),3.4,6.5,92,62,3500000
+7,King's College London,Upper Second (2:1),3.4,6.5,92,62,3500000
+8,University of Manchester,Upper Second (2:1),3.3,6.5,90,60,3000000
+9,University of Bristol,Upper Second (2:1),3.3,6.5,90,60,3000000
+10,University of Warwick,Upper Second (2:1),3.4,6.5,92,62,3000000
+11,University of Glasgow,Upper Second (2:1),3.3,6.5,90,60,3000000
+12,Durham University,Upper Second (2:1),3.4,6.5,92,62,3000000
+13,University of Birmingham,Upper Second (2:1),3.3,6.5,90,60,3000000
+14,University of Sheffield,Upper Second (2:1),3.3,6.5,88,60,3000000
+15,University of St Andrews,Upper Second (2:1),3.4,7,100,67,3500000
+16,University of Leeds,Upper Second (2:1),3.3,6.5,87,60,3000000
+17,University of Southampton,Upper Second (2:1),3.3,6.5,87,60,3000000
+18,University of York,Upper Second (2:1),3.3,6.5,87,60,3000000
+19,University of Nottingham,Upper Second (2:1),3.3,6.5,87,60,3000000
+20,Queen Mary University of London,Upper Second (2:1),3.3,6.5,87,60,2500000
+21,Lancaster University,Upper Second (2:1),3.3,6.5,87,60,2500000
+22,University of Bath,Upper Second (2:1),3.4,6.5,92,62,3000000
+23,Cardiff University,Upper Second (2:1),3.3,6.5,87,60,2500000
+24,University of Surrey,Upper Second (2:1),3.3,6.5,88,60,2500000
+25,University of Aberdeen,Upper Second (2:1),3.3,6.5,87,60,2500000
+26,University of Leicester,Upper Second (2:1),3.3,6.5,87,60,2500000
+27,University of Sussex,Upper Second (2:1),3.3,6.5,87,60,2500000
+28,University of Exeter,Upper Second (2:1),3.3,6.5,87,60,2500000
+29,Royal Holloway University of london,Upper Second (2:1),3.3,6.5,87,60,2500000
+30,University of Dundee,Upper Second (2:1),3.3,6.5,87,60,2500000
+31,Newcastle University,Upper Second (2:1),3.3,6.5,87,60,2500000
+32,University of Liverpool,Upper Second (2:1),3.3,6.5,87,60,2500000
+33,University of Reading,Upper Second (2:1),3.3,6.5,87,60,2500000
+34,University of East Anglia (UEA),Upper Second (2:1),3.3,6.5,87,60,2000000
+35,University of Strathclyde,Upper Second (2:1),3.3,6.5,87,60,2000000
+36,University of Kent,Upper Second (2:1),3.3,6.5,87,60,2000000
+37,Loughborough University,Upper Second (2:1),3.3,6.5,88,60,2000000
+38,Brunel University London,Upper Second (2:1),3.3,6.5,87,60,2000000
+39,University of Essex,Upper Second (2:1),3.3,6.5,86,58,2000000
+40,SOAS University of London,Upper Second (2:1),3.3,6.5,87,60,2000000
+41,University of Stirling,Upper Second (2:1),3.3,6,80,56,2000000
+42,Aston University,Upper Second (2:1),3.3,6.5,87,60,2000000
+43,Heriot-Watt University,Upper Second (2:1),3.3,6.5,88,60,2000000
+44,Swansea University,Upper Second (2:1),3.3,6.5,87,60,2000000
+45,University of Bradford,Lower Second (2:2),3,6,80,54,1500000
+46,City University,Upper Second (2:1),3.3,6.5,87,60,2000000
+47,Oxford Brookes University,Lower Second (2:2),3,6.5,87,58,1500000
+48,Keele University,Upper Second (2:1),3.3,6.5,87,60,1500000
+49,Ulster University,Upper Second (2:1),3.3,6,80,56,1500000
+50,University of Plymouth,Lower Second (2:2),3,6,80,54,1500000
+51,University of Portsmouth,Lower Second (2:2),3,6,80,54,1500000
+52,Queen's University Belfast,Upper Second (2:1),3.3,6.5,87,60,1500000
+53,University of Huddersfield,Lower Second (2:2),3,6,80,54,1500000
+54,University of Lincoln,Lower Second (2:2),3,6,80,54,1500000
+55,University of Northumbria,Lower Second (2:2),3,6,80,54,1500000
+56,University of the West of England (UWE Bristol),Lower Second (2:2),3,6,80,54,1500000
+57,University of Westminster,Lower Second (2:2),3,6,80,54,1500000
+58,Aberystwyth University,Lower Second (2:2),3,6,76,51,1500000
+59,Bangor University,Lower Second (2:2),3,6,80,54,1500000
+60,University of Bedfordshire,Third Class,2.7,5.5,72,42,1000000
+61,University of Bolton,Third Class,2.7,5.5,72,42,1000000
+62,Bournemouth University,Lower Second (2:2),3,6,80,54,1500000
+63,University of Brighton,Lower Second (2:2),3,6,80,54,1500000
+64,University of Central Lancashire,Lower Second (2:2),3,6,80,54,1500000
+65,University of Chester,Lower Second (2:2),3,6,80,54,1500000
+66,Coventry University,Lower Second (2:2),3,6,80,54,1500000
+67,University of Cumbria,Third Class,2.7,6,76,51,1000000
+68,De Montfort University,Lower Second (2:2),3,6,80,54,1500000
+69,University of Derby,Lower Second (2:2),3,6,80,54,1500000
+70,University of East London,Third Class,2.7,5.5,72,42,1000000
+71,University of Gloucestershire,Lower Second (2:2),3,6,80,54,1500000
+72,University of Greenwich,Lower Second (2:2),3,6,80,54,1500000
+73,University of Hertfordshire,Lower Second (2:2),3,6,80,54,1500000
+74,Kingston University,Lower Second (2:2),3,6,80,54,1500000
+75,Leeds Beckett University,Lower Second (2:2),3,6,80,54,1500000
+76,Liverpool John Moores University,Lower Second (2:2),3,6,80,54,1500000
+77,London Metropolitan University,Third Class,2.7,5.5,72,42,1000000
+78,London South Bank University,Third Class,2.7,5.5,72,42,1000000
+79,University of Manchester Metropolitan,Lower Second (2:2),3,6,80,54,1500000
+80,Middlesex University,Lower Second (2:2),3,6,80,54,1500000
+81,Newcastle University London,Upper Second (2:1),3.3,6.5,87,60,2500000
+82,University of Nottingham Trent,Lower Second (2:2),3,6,80,54,1500000
+83,University of Roehampton,Lower Second (2:2),3,6,80,54,1500000
+84,Royal Agricultural University,Lower Second (2:2),3,6,80,54,1500000
+85,University of Salford,Lower Second (2:2),3,6,80,54,1500000
+86,Sheffield Hallam University,Lower Second (2:2),3,6,80,54,1500000
+87,University of South Wales,Lower Second (2:2),3,6,80,54,1500000
+88,Staffordshire University,Third Class,2.7,5.5,72,42,1000000
+89,University of Sunderland,Third Class,2.7,5.5,72,42,1000000
+90,Teesside University,Third Class,2.7,5.5,72,42,1000000
+91,University of West London,Third Class,2.7,5.5,72,42,1000000
+92,University of Winchester,Lower Second (2:2),3,6,80,54,1500000
+93,University of Wolverhampton,Third Class,2.7,5.5,72,42,1000000
+94,University of Worcester,Lower Second (2:2),3,6,80,54,1500000
+95,Anglia Ruskin University,Lower Second (2:2),3,6,80,54,1500000
+96,Bath Spa University,Lower Second (2:2),3,6,80,54,1500000
+97,University of Chichester,Lower Second (2:2),3,6,80,54,1500000
+98,Glyndwr University,Third Class,2.7,5.5,72,42,1000000
+99,Ravensbourne University London,Lower Second (2:2),3,6,80,54,1500000
+100,Writtle University College,Lower Second (2:2),3,6,80,54,1500000

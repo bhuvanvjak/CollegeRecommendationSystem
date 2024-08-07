@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Dream UK University</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Find Your Dream UK University</h1>
+    <form id="uniForm">
+        <input type="number" step="0.1" min="0" max="4.0" id="cgpa" placeholder="Your CGPA (4.0 scale)" required>
+        <input type="number" step="0.1" min="0" max="9.0" id="ielts" placeholder="Your IELTS Score" required>
+        <input type="number" min="0" max="120" id="toefl" placeholder="Your TOEFL iBT Score" required>
+        <input type="number" min="0" max="90" id="pte" placeholder="Your PTE Academic Score" required>
+        <select id="degree_class" required>
+            <option value="" disabled selected>Select Degree Class</option>
+            <option value="Third Class">Third Class</option>
+            <option value="Lower Second (2:2)">Lower Second (2:2)</option>
+            <option value="Upper Second (2:1)">Upper Second (2:1)</option>
+        </select>
+        <input type="number" min="1" id="max_tuition" placeholder="Max. Annual Tuition (in Lakhs INR)" required>
+        <button type="button" onclick="getRecommendations()">Find Universities</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        function getRecommendations() {
+            const cgpa = document.getElementById('cgpa').value;
+            const ielts = document.getElementById('ielts').value;
+            const toefl = document.getElementById('toefl').value;
+            const pte = document.getElementById('pte').value;
+            const degree_class = document.getElementById('degree_class').value;
+            const max_tuition = document.getElementById('max_tuition').value;
+
+            if (!cgpa || !ielts || !toefl || !pte || !degree_class || !max_tuition) {
+                document.getElementById('results').innerHTML = "<p>Please fill in all required fields.</p>";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('cgpa', cgpa);
+            formData.append('ielts', ielts);
+            formData.append('toefl', toefl);
+            formData.append('pte', pte);
+            formData.append('degree_class', degree_class);
+            formData.append('max_tuition', max_tuition);
+
+            fetch('/uk/recommend', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Received data:', data);
+                const resultsDiv = document.getElementById('results');
+                if (data.length === 0) {
+                    resultsDiv.innerHTML = "<p>No universities found matching your criteria. Consider adjusting your parameters.</p>";
+                    return;
+                }
+
+                let table = "<h2>Top 10 University Recommendations</h2><table><tr><th>Rank</th><th>University</th><th>Annual Tuition (INR)</th><th>Admission Probability</th></tr>";
+                data.forEach(uni => {
+                    table += `<tr><td>${uni.Rank}</td><td>${uni.University}</td><td>${uni["Max Tuition Fee (INR)"].toLocaleString('en-IN')}</td><td>${(uni["Admission Probability"] * 100).toFixed(2)}%</td></tr>`;
+                });
+                table += "</table><p>Note: These recommendations are based on minimum requirements. Admission depends on various other factors.</p>";
+                resultsDiv.innerHTML = table;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('results').innerHTML = "<p>Error fetching recommendations. Please try again.</p>";
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+japan
+CGPA: 3.5
+JLPT Level: N2
+EJU Score: 300
+TOEFL iBT Score: 90
+Maximum Annual Tuition (INR): 1,500,000
+Location: Tokyo
+
+uk
+CGPA (4.0 scale): 3.6
+IELTS Score: 7.0
+TOEFL iBT Score: 100
+PTE Academic Score: 70
+Degree Class: Upper Second (2:1)
+Maximum Annual Tuition: 40 Lakhs INR (4,000,000 INR)

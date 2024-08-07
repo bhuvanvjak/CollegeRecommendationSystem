@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan University Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Find Your Dream University in Japan</h1>
+    <form id="uniForm">
+        <input type="number" step="0.1" min="0" max="4.0" id="cgpa" placeholder="Your CGPA" required>
+        <input type="text" id="jlpt" list="jlptOptions" placeholder="Your JLPT Level" required>
+        <datalist id="jlptOptions">
+            <option value="N1">
+            <option value="N2">
+            <option value="N3">
+            <option value="N4">
+            <option value="N5">
+        </datalist>
+        <input type="number" min="200" max="400" id="eju" placeholder="Your EJU Score" required>
+        <input type="number" min="0" max="120" id="toefl" placeholder="Your TOEFL iBT Score" required>
+        <input type="number" min="1" id="max_tuition" placeholder="Max. Annual Tuition (in INR)" required>
+        <input type="text" id="locationSelect" list="locationOptions" placeholder="Select Location" required>
+        <datalist id="locationOptions">
+            {% for location in locations %}
+            <option value="{{ location }}">
+            {% endfor %}
+        </datalist>
+        <button type="button" onclick="getRecommendations()">Find Universities</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        function getRecommendations() {
+            const cgpa = document.getElementById('cgpa').value;
+            const jlpt = document.getElementById('jlpt').value;
+            const eju = document.getElementById('eju').value;
+            const toefl = document.getElementById('toefl').value;
+            const max_tuition = document.getElementById('max_tuition').value;
+            const location = document.getElementById('locationSelect').value;
+
+            // Check if all required fields are filled
+            if (!cgpa || !jlpt || !eju || !toefl || !max_tuition || !location) {
+                document.getElementById('results').innerHTML = "<p>Please fill in all required fields.</p>";
+                return;
+            }
+
+            console.log(`Sending request with: CGPA=${cgpa}, JLPT=${jlpt}, EJU=${eju}, TOEFL=${toefl}, Max Tuition=${max_tuition}, Location=${location}`);
+
+            const formData = new FormData();
+            formData.append('cgpa', cgpa);
+            formData.append('jlpt', jlpt);
+            formData.append('eju', eju);
+            formData.append('toefl', toefl);
+            formData.append('max_tuition', max_tuition);
+            formData.append('location', location);
+
+            fetch('/japan/recommend', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Received data:', data);
+                const resultsDiv = document.getElementById('results');
+                if (data.error) {
+                    resultsDiv.innerHTML = `<p>${data.error}</p>`;
+                    return;
+                }
+                if (data.length === 0) {
+                    resultsDiv.innerHTML = "<p>No universities found matching your criteria. Consider adjusting your parameters.</p>";
+                    return;
+                }
+
+                let table = "<h2>Top University Recommendations</h2><table><tr><th>Rank</th><th>University</th><th>Location</th><th>Annual Tuition (INR)</th><th>Selection %</th></tr>";
+                data.forEach(uni => {
+                    table += `<tr><td>${uni.Rank}</td><td>${uni.University}</td><td>${uni.Location}</td><td>${uni["Min. Annual Fee (INR)"].toLocaleString('en-IN')}</td><td>${uni["Selection %"]}%</td></tr>`;
+                });
+                table += "</table><p>Note: These recommendations are based on minimum requirements. Admission depends on various other factors.</p>";
+                resultsDiv.innerHTML = table;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('results').innerHTML = "<p>Error fetching recommendations. Please try again.</p>";
+            });
+        }
+    </script>
+</body>
+</html>
