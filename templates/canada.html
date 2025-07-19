@@ -3,76 +3,632 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Recommender</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Canada Universities - Higher Edu Recommender</title>
     <style>
-        .no-gre { color: red; }
-        .legend { font-style: italic; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #dc143c 0%, #ffffff 25%, #f8f8ff 50%, #ffffff 75%, #dc143c 100%);
+            background-size: 300% 300%;
+            animation: mapleShift 10s ease infinite;
+            min-height: 100vh;
+            color: #333;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="80" opacity="0.05">🍁</text></svg>') repeat;
+            background-size: 200px 200px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes mapleShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(220, 20, 60, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid #ffffff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(220, 20, 60, 0.2);
+        }
+
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        header nav a:hover::before {
+            left: 100%;
+        }
+
+        header nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        header nav a.active {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #b71c1c;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .canada-flag {
+            font-size: 3rem;
+            animation: mapleWave 3s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        @keyframes mapleWave {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-5deg) scale(1.1); }
+            75% { transform: rotate(5deg) scale(1.1); }
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #b71c1c;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .canadian-motto {
+            font-style: italic;
+            color: #8d6e63;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* Form Container */
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 3px solid #b71c1c;
+            box-shadow: 0 20px 40px rgba(183, 28, 28, 0.15);
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            color: #b71c1c;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: #b71c1c;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #b71c1c;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #d32f2f;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 20px rgba(183, 28, 28, 0.2);
+            transform: scale(1.02);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px 30px;
+            background: linear-gradient(45deg, #cc0000, #ff0000);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(204, 0, 0, 0.4);
+            background: linear-gradient(45deg, #ff0000, #ff3333);
+        }
+
+        /* Results Container */
+        .results-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            border: 3px solid #b71c1c;
+            box-shadow: 0 20px 40px rgba(183, 28, 28, 0.15);
+            display: none;
+        }
+
+        .results-title {
+            font-size: 1.8rem;
+            color: #b71c1c;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .university-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid #ffcccb;
+            box-shadow: 0 5px 15px rgba(183, 28, 28, 0.1);
+        }
+
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(183, 28, 28, 0.15);
+            border-color: #b71c1c;
+        }
+
+        .university-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #8d0000;
+            margin-bottom: 10px;
+        }
+
+        .university-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .selection-percentage {
+            background: linear-gradient(45deg, #b71c1c, #d32f2f);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-align: center;
+            min-width: 80px;
+            box-shadow: 0 2px 8px rgba(183, 28, 28, 0.2);
+        }
+
+        .loading {
+            text-align: center;
+            color: #b71c1c;
+            font-size: 1.2rem;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 3px solid rgba(183, 28, 28, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid #b71c1c;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(183, 28, 28, 0.85), rgba(211, 47, 47, 0.85));
+            backdrop-filter: blur(20px);
+            border-top: 3px solid #ffffff;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+            font-weight: 500;
+        }
+
+        /* Canadian provinces styling */
+        .provinces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .province-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(183, 28, 28, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .province-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #b71c1c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header nav {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            header nav a {
+                margin: 5px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .form-container, .results-container {
+                padding: 25px 20px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .canada-flag {
+                font-size: 2rem;
+            }
+        }
+
+        .error-message {
+            background: rgba(204, 0, 0, 0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #cc0000;
+            font-size: 1.1rem;
+            padding: 30px;
+        }
+
+        .canadian-pride {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #cc0000;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            color: #cc0000;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
-    <h1>Find Your Dream Canadian University</h1>
-    <form id="uniForm">
-        <input type="number" step="0.1" min="0" max="4.0" id="cgpa" placeholder="Your CGPA" required>
-        <input type="number" min="0" max="120" id="toefl" placeholder="Your TOEFL iBT Score" required>
-        <input type="number" step="0.1" min="0" max="9.0" id="ielts" placeholder="Your IELTS Score" required>
-        <input type="number" min="260" max="340" id="gre" placeholder="Your GRE Score (V+Q) (Optional)">
-        <input type="number" min="1" id="max_tuition" placeholder="Max. Annual Tuition (in Lakhs INR)" required>
-        <button type="button" onclick="getRecommendations()">Find Universities</button>
-    </form>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/usa">USA</a>
+            <a href="/canada" class="active">Canada</a>
+            <a href="/japan">Japan</a>
+            <a href="/uk">UK</a>
+        </nav>
+    </header>
 
-    <div id="results"></div>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                <span class="canada-flag">🍁</span>
+                Canada Universities
+                <span class="canada-flag">🎓</span>
+            </h1>
+            <p class="page-subtitle">Eh! Find your perfect university match in the Great White North</p>
+            <p class="canadian-motto">"From Sea to Sea" - A Mari Usque Ad Mare</p>
+        </div>
+
+        <div class="canadian-pride">
+            <p>🍁 Welcome to Canada's world-class education system! Home to some of the world's top universities, beautiful campuses, and the friendliest people you'll ever meet! 🍁</p>
+        </div>
+
+        <div class="form-container">
+            <h2 class="form-title">🍁 Tell us about your academic profile, eh! 📚</h2>
+            <form id="recommendationForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="cgpa">CGPA (4.0 scale) *</label>
+                        <input type="number" id="cgpa" name="cgpa" min="0" max="4" step="0.01" placeholder="e.g., 3.5" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="toefl">TOEFL iBT Score *</label>
+                        <input type="number" id="toefl" name="toefl" min="0" max="120" placeholder="e.g., 100" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ielts">IELTS Score *</label>
+                        <input type="number" id="ielts" name="ielts" min="0" max="9" step="0.1" placeholder="e.g., 7.5" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gre">GRE Score (V+Q)</label>
+                        <input type="number" id="gre" name="gre" min="260" max="340" placeholder="e.g., 320 (optional)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="province">Preferred Province</label>
+                        <select id="province" name="province">
+                            <option value="">Any Province (eh!)</option>
+                            <option value="Alberta">Alberta 🏔️</option>
+                            <option value="British Columbia">British Columbia 🌲</option>
+                            <option value="Manitoba">Manitoba 🌾</option>
+                            <option value="New Brunswick">New Brunswick 🦞</option>
+                            <option value="Newfoundland and Labrador">Newfoundland and Labrador 🐋</option>
+                            <option value="Northwest Territories">Northwest Territories ❄️</option>
+                            <option value="Nova Scotia">Nova Scotia 🏴󐁣󐁮󐁮󐁳󐁿</option>
+                            <option value="Nunavut">Nunavut 🐻‍❄️</option>
+                            <option value="Ontario">Ontario 🍁</option>
+                            <option value="Prince Edward Island">Prince Edward Island 🥔</option>
+                            <option value="Quebec">Quebec ⚜️</option>
+                            <option value="Saskatchewan">Saskatchewan 🌾</option>
+                            <option value="Yukon">Yukon 🌌</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="max_tuition">Max Annual Tuition (₹ Lakhs) *</label>
+                        <input type="number" id="max_tuition" name="max_tuition" min="1" step="0.5" placeholder="e.g., 20" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    🍁 Find My Canadian Universities, Eh!
+                </button>
+            </form>
+        </div>
+
+        <div id="results" class="results-container">
+            <h2 class="results-title">🎯 Your Canadian University Recommendations 🍁</h2>
+            <div id="results-content"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Higher Edu Recommender - Your Gateway to Canadian Excellence 🍁</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Sorry for the great recommendations, eh! 😉</p>
+    </footer>
 
     <script>
-        function getRecommendations() {
-            const cgpa = document.getElementById('cgpa').value;
-            const toefl = document.getElementById('toefl').value;
-            const ielts = document.getElementById('ielts').value;
-            const gre = document.getElementById('gre').value || '';
-            const max_tuition = document.getElementById('max_tuition').value;
-
-            if (!cgpa || !toefl || !ielts || !max_tuition) {
-                document.getElementById('results').innerHTML = "<p>Please fill in all required fields.</p>";
-                return;
-            }
-
-            console.log(`Sending request with: CGPA=${cgpa}, TOEFL=${toefl}, IELTS=${ielts}, GRE=${gre}, Max Tuition=${max_tuition}`);
-
-            const formData = new FormData();
-            formData.append('cgpa', cgpa);
-            formData.append('toefl', toefl);
-            formData.append('ielts', ielts);
-            formData.append('gre', gre);
-            formData.append('max_tuition', max_tuition);
-
-            fetch('/canada/recommend', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Received data:', data);
-                const resultsDiv = document.getElementById('results');
-                if (data.error) {
-                    resultsDiv.innerHTML = `<p>${data.error}</p>`;
-                    return;
-                }
-                if (data.length === 0) {
-                    resultsDiv.innerHTML = "<p>No universities found matching your criteria. Consider adjusting your parameters.</p>";
-                    return;
-                }
-
-                let table = "<h2>Top University Recommendations</h2><table><tr><th>Rank</th><th>University</th><th>Location</th><th>Annual Tuition (INR)</th><th>Selection %</th></tr>";
-                data.forEach(uni => {
-                    table += `<tr><td>${uni.Rank || 'N/A'}</td><td>${uni.University || 'N/A'}</td><td>${uni.Location || 'N/A'}</td><td>${(uni["Max Tuition Fee (INR)"] || 0).toLocaleString('en-IN')}</td><td>${uni["Selection %"] ? uni["Selection %"].toFixed(2) + '%' : 'N/A'}</td></tr>`;
+        document.getElementById('recommendationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const resultsContainer = document.getElementById('results');
+            const resultsContent = document.getElementById('results-content');
+            
+            // Show loading with Canadian flair
+            resultsContainer.style.display = 'block';
+            resultsContent.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>🍁 Finding the perfect Canadian universities for you, eh! 🏫</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Just give us a sec, we're being extra polite about it... 😊</p>
+                </div>
+            `;
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch('/canada/recommend', {
+                    method: 'POST',
+                    body: formData
                 });
-                table += "</table><p>Note: These recommendations are based on minimum requirements. Admission depends on various other factors.</p>";
-                resultsDiv.innerHTML = table;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('results').innerHTML = `<p>Error fetching recommendations: ${error.message || 'Unknown error'}. Please try again.</p>`;
-            });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    if (data.length === 0) {
+                        resultsContent.innerHTML = `
+                            <div class="no-results">
+                                <h3>🍁 Sorry, eh! No universities found</h3>
+                                <p>Don't worry aboot it! Try adjusting your criteria - maybe increase your tuition budget or consider other provinces.</p>
+                                <p style="margin-top: 15px;">🇨🇦 Canada has amazing opportunities waiting for you!</p>
+                            </div>
+                        `;
+                    } else {
+                        displayResults(data);
+                    }
+                } else {
+                    throw new Error(data.error || 'Sorry, eh! An error occurred');
+                }
+            } catch (error) {
+                resultsContent.innerHTML = `
+                    <div class="error-message">
+                        🍁 ${error.message}
+                    </div>
+                `;
+            }
+        });
+        
+        function displayResults(universities) {
+            const resultsContent = document.getElementById('results-content');
+            
+            const universitiesHTML = universities.map((uni, index) => `
+                <div class="university-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <div>
+                            <div class="university-name">${uni.University}</div>
+                            <div style="color: #666; font-size: 0.95rem;">🏆 Rank: #${uni.Rank || 'N/A'}</div>
+                        </div>
+                        <div class="selection-percentage">${uni['Selection %'] ? uni['Selection %'].toFixed(2) : 'N/A'}% Match</div>
+                    </div>
+                    
+                    <div class="university-details">
+                        <div class="detail-item">
+                            <span class="detail-label">📍 Location</span>
+                            <span class="detail-value">${uni.Location || 'N/A'}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">💰 Max Annual Tuition</span>
+                            <span class="detail-value">₹${((uni['Max Tuition Fee (INR)'] || 0) / 100000).toFixed(1)} Lakhs</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            const finalHTML = universitiesHTML + `
+                <div class="canadian-pride" style="margin-top: 30px;">
+                    <p>🍁 <strong>Congratulations, eh!</strong> These Canadian universities are excited to welcome you! 🇨🇦</p>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Remember: admission depends on various factors. These are just our friendly recommendations, buddy! 😊</p>
+                </div>
+            `;
+            
+            resultsContent.innerHTML = finalHTML;
         }
     </script>
 </body>

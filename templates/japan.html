@@ -3,93 +3,677 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japan University Recommender</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Japan Universities - Higher Edu Recommender</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Yu Gothic', 'Hiragino Sans', sans-serif;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 25%, #f8b500 50%, #6c5ce7 75%, #00cec9 100%);
+            background-size: 300% 300%;
+            animation: sakuraFlow 12s ease infinite;
+            min-height: 100vh;
+            color: #2d3436;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Sakura petals animation */
+        .sakura {
+            position: fixed;
+            top: -10px;
+            color: #ff6b9d;
+            font-size: 20px;
+            animation: fall linear infinite;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @keyframes sakuraFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Traditional Japanese wave pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0 50C100 0 200 100 300 50C400 0 500 100 600 50C700 0 800 100 900 50C950 25 975 37.5 1000 50V100H0V50Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 100px 100px;
+            background-repeat: repeat-x;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.9), rgba(196, 69, 105, 0.9));
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(108, 92, 231, 0.3);
+        }
+
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        header nav a.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        header nav a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #ffffff;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .japan-elements {
+            font-size: 3rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+
+        .japanese-text {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        /* Form Container */
+        .form-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .form-container::before {
+            content: '桜';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: rgba(255, 107, 157, 0.3);
+            font-weight: bold;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: #2d3436;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #6c5ce7;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 20px rgba(108, 92, 231, 0.3);
+            transform: scale(1.02);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        /* Japanese themed select styling */
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%236c5ce7" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 20px;
+            padding-right: 45px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px 30px;
+            background: linear-gradient(45deg, #6c5ce7, #ff6b9d);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
+            background: linear-gradient(45deg, #ff6b9d, #f8b500);
+        }
+
+        /* Results Container */
+        .results-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+
+        .results-container::after {
+            content: '🏫';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .results-title {
+            font-size: 1.8rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .university-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .university-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(45deg, #6c5ce7, #ff6b9d);
+        }
+
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: #6c5ce7;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.95));
+        }
+
+        .university-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .university-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        .selection-percentage {
+            background: linear-gradient(45deg, #00cec9, #6c5ce7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-align: center;
+            min-width: 80px;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid #ff6b9d;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.9), rgba(196, 69, 105, 0.9));
+            backdrop-filter: blur(20px);
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+            font-weight: 500;
+        }
+
+        .footer-japanese {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header nav {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            header nav a {
+                margin: 5px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .form-container, .results-container {
+                padding: 25px 20px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .japan-elements {
+                font-size: 2rem;
+            }
+        }
+
+        .error-message {
+            background: rgba(231, 76, 60, 0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .no-results {
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+            padding: 30px;
+        }
+
+        /* Japanese cultural elements */
+        .torii {
+            color: #e17055;
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
+
+        .rank-badge {
+            background: linear-gradient(45deg, #f8b500, #ff6b9d);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-    <h1>Find Your Dream University in Japan</h1>
-    <form id="uniForm">
-        <input type="number" step="0.1" min="0" max="4.0" id="cgpa" placeholder="Your CGPA" required>
-        <input type="text" id="jlpt" list="jlptOptions" placeholder="Your JLPT Level" required>
-        <datalist id="jlptOptions">
-            <option value="N1">
-            <option value="N2">
-            <option value="N3">
-            <option value="N4">
-            <option value="N5">
-        </datalist>
-        <input type="number" min="200" max="400" id="eju" placeholder="Your EJU Score" required>
-        <input type="number" min="0" max="120" id="toefl" placeholder="Your TOEFL iBT Score" required>
-        <input type="number" min="1" id="max_tuition" placeholder="Max. Annual Tuition (in INR)" required>
-        <input type="text" id="locationSelect" list="locationOptions" placeholder="Select Location" required>
-        <datalist id="locationOptions">
-            {% for location in locations %}
-            <option value="{{ location }}">
-            {% endfor %}
-        </datalist>
-        <button type="button" onclick="getRecommendations()">Find Universities</button>
-    </form>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/usa">USA</a>
+            <a href="/canada">Canada</a>
+            <a href="/japan" class="active">Japan</a>
+            <a href="/uk">UK</a>
+        </nav>
+    </header>
 
-    <div id="results"></div>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                <span class="japan-elements">🏯</span>
+                Japan Universities
+                <span class="japan-elements">🌸</span>
+            </h1>
+            <p class="page-subtitle">Discover your academic journey in the Land of the Rising Sun</p>
+            <p class="japanese-text">日本の大学で夢を実現しよう</p>
+        </div>
+
+        <div class="form-container">
+            <h2 class="form-title">Share your academic credentials <span class="torii">⛩️</span></h2>
+            <form id="recommendationForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="cgpa">CGPA (4.0 scale) *</label>
+                        <input type="number" id="cgpa" name="cgpa" min="0" max="4" step="0.01" placeholder="e.g., 3.5" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jlpt">JLPT Level *</label>
+                        <select id="jlpt" name="jlpt" required>
+                            <option value="">Select JLPT Level...</option>
+                            <option value="N1">N1 (Most Advanced)</option>
+                            <option value="N2">N2 (Upper Intermediate)</option>
+                            <option value="N3">N3 (Intermediate)</option>
+                            <option value="N4">N4 (Lower Intermediate)</option>
+                            <option value="N5">N5 (Beginner)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eju">EJU Score *</label>
+                        <input type="number" id="eju" name="eju" min="200" max="400" placeholder="e.g., 650" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="toefl">TOEFL iBT Score *</label>
+                        <input type="number" id="toefl" name="toefl" min="0" max="120" placeholder="e.g., 85" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Preferred Location *</label>
+                        <select id="location" name="location" required>
+                            <option value="">Select a city...</option>
+                            <option value="Tokyo">Tokyo (東京)</option>
+                            <option value="Osaka">Osaka (大阪)</option>
+                            <option value="Kyoto">Kyoto (京都)</option>
+                            <option value="Yokohama">Yokohama (横浜)</option>
+                            <option value="Nagoya">Nagoya (名古屋)</option>
+                            <option value="Kobe">Kobe (神戸)</option>
+                            <option value="Fukuoka">Fukuoka (福岡)</option>
+                            <option value="Sapporo">Sapporo (札幌)</option>
+                            <option value="Sendai">Sendai (仙台)</option>
+                            <option value="Hiroshima">Hiroshima (広島)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="max_tuition">Max Annual Tuition (₹ Lakhs) *</label>
+                        <input type="number" id="max_tuition" name="max_tuition" min="1" step="0.5" placeholder="e.g., 15" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    🔍 Find My Japanese Universities
+                </button>
+            </form>
+        </div>
+
+        <div id="results" class="results-container">
+            <h2 class="results-title">🎯 Your University Recommendations</h2>
+            <div id="results-content"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Higher Edu Recommender - Your Gateway to Japanese Universities</p>
+        <p class="footer-japanese">日本での学習体験をお楽しみください</p>
+    </footer>
 
     <script>
-        function getRecommendations() {
-            const cgpa = document.getElementById('cgpa').value;
-            const jlpt = document.getElementById('jlpt').value;
-            const eju = document.getElementById('eju').value;
-            const toefl = document.getElementById('toefl').value;
-            const max_tuition = document.getElementById('max_tuition').value;
-            const location = document.getElementById('locationSelect').value;
+        // Create falling sakura petals
+        function createSakura() {
+            const sakura = document.createElement('div');
+            sakura.className = 'sakura';
+            sakura.innerHTML = '🌸';
+            sakura.style.left = Math.random() * 100 + 'vw';
+            sakura.style.animationDuration = Math.random() * 3 + 2 + 's';
+            sakura.style.opacity = Math.random();
+            document.body.appendChild(sakura);
 
-            // Check if all required fields are filled
-            if (!cgpa || !jlpt || !eju || !toefl || !max_tuition || !location) {
-                document.getElementById('results').innerHTML = "<p>Please fill in all required fields.</p>";
-                return;
-            }
+            setTimeout(() => {
+                sakura.remove();
+            }, 5000);
+        }
 
-            console.log(`Sending request with: CGPA=${cgpa}, JLPT=${jlpt}, EJU=${eju}, TOEFL=${toefl}, Max Tuition=${max_tuition}, Location=${location}`);
+        // Create sakura petals periodically
+        setInterval(createSakura, 300);
 
-            const formData = new FormData();
-            formData.append('cgpa', cgpa);
-            formData.append('jlpt', jlpt);
-            formData.append('eju', eju);
-            formData.append('toefl', toefl);
-            formData.append('max_tuition', max_tuition);
-            formData.append('location', location);
-
-            fetch('/japan/recommend', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Received data:', data);
-                const resultsDiv = document.getElementById('results');
-                if (data.error) {
-                    resultsDiv.innerHTML = `<p>${data.error}</p>`;
-                    return;
-                }
-                if (data.length === 0) {
-                    resultsDiv.innerHTML = "<p>No universities found matching your criteria. Consider adjusting your parameters.</p>";
-                    return;
-                }
-
-                let table = "<h2>Top University Recommendations</h2><table><tr><th>Rank</th><th>University</th><th>Location</th><th>Annual Tuition (INR)</th><th>Selection %</th></tr>";
-                data.forEach(uni => {
-                    table += `<tr><td>${uni.Rank}</td><td>${uni.University}</td><td>${uni.Location}</td><td>${uni["Min. Annual Fee (INR)"].toLocaleString('en-IN')}</td><td>${uni["Selection %"]}%</td></tr>`;
+        document.getElementById('recommendationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const resultsContainer = document.getElementById('results');
+            const resultsContent = document.getElementById('results-content');
+            
+            // Show loading
+            resultsContainer.style.display = 'block';
+            resultsContent.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Finding the perfect Japanese universities for you...</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">大学を探しています...</p>
+                </div>
+            `;
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch('/japan/recommend', {
+                    method: 'POST',
+                    body: formData
                 });
-                table += "</table><p>Note: These recommendations are based on minimum requirements. Admission depends on various other factors.</p>";
-                resultsDiv.innerHTML = table;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('results').innerHTML = "<p>Error fetching recommendations. Please try again.</p>";
-            });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    if (data.length === 0) {
+                        resultsContent.innerHTML = `
+                            <div class="no-results">
+                                <h3>😔 No universities found</h3>
+                                <p>Try adjusting your criteria - perhaps increase your tuition budget or consider other locations.</p>
+                                <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">条件を調整してみてください</p>
+                            </div>
+                        `;
+                    } else {
+                        displayResults(data);
+                    }
+                } else {
+                    throw new Error(data.error || 'An error occurred');
+                }
+            } catch (error) {
+                resultsContent.innerHTML = `
+                    <div class="error-message">
+                        ⚠️ ${error.message}
+                    </div>
+                `;
+            }
+        });
+        
+        function displayResults(universities) {
+            const resultsContent = document.getElementById('results-content');
+            
+            const universitiesHTML = universities.map((uni, index) => `
+                <div class="university-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <div>
+                            <div class="university-name">${uni.University}</div>
+                            <div style="color: #636e72; font-size: 0.95rem;">
+                                <span class="rank-badge">Rank #${uni.Rank}</span>
+                            </div>
+                        </div>
+                        <div class="selection-percentage">${uni['Selection %']}% Match</div>
+                    </div>
+                    
+                    <div class="university-details">
+                        <div class="detail-item">
+                            <span class="detail-label">📍 Location</span>
+                            <span class="detail-value">${uni.Location}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">💰 Annual Tuition</span>
+                            <span class="detail-value">₹${(uni['Min. Annual Fee (INR)'] / 100000).toFixed(1)} Lakhs</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            resultsContent.innerHTML = universitiesHTML;
         }
     </script>
 </body>
