@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 # Load and preprocess data
 try:
-    data = pd.read_csv('usa100.csv')
+    data = pd.read_csv('Data/usa100.csv')
     data['State'] = data['Location'].apply(lambda x: x.split()[-1])
 
     preprocessor = ColumnTransformer(

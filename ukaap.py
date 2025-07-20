@@ -9,7 +9,7 @@ from flask import Blueprint, render_template, request, jsonify
 app = Blueprint('uk', __name__)
 
 # Load and preprocess data
-data = pd.read_csv('uk10.csv')
+data = pd.read_csv('Data/uk10.csv')
 
 # Convert degree class to numerical values
 degree_class_map = {'Third Class': 1, 'Lower Second (2:2)': 2, 'Upper Second (2:1)': 3}

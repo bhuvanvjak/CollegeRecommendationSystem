@@ -9,7 +9,7 @@ from flask import Flask, render_template, request, jsonify, Blueprint
 app = Blueprint('canada', __name__)
 
 # Load and preprocess data
-data = pd.read_csv('canada100.csv')
+data = pd.read_csv('Data/canada100.csv')
 
 # Impute missing GRE values with -1
 data['Min. GRE (V+Q)'] = data['Min. GRE (V+Q)'].fillna(-1)

@@ -8,7 +8,7 @@ app= Blueprint('japan', __name__)
 
 # Load and preprocess data
 try:
-    data = pd.read_csv('japan100.csv')
+    data = pd.read_csv('Data/japan100.csv')
     locations = data['Location'].unique().tolist()
 except Exception as e:
     print(f"Error loading CSV file: {e}")
